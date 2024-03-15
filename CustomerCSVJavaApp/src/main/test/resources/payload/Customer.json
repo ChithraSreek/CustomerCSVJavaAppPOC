@@ -1,0 +1,9 @@
+{
+  "customerReference": "1111",
+  "customerName": "John C",
+  "addressLine1": "johnAdd1",
+  "addressLine2" : "johnAdd2",
+  "town" : "johnTown",
+  "country" : "johnCountry",
+  "postCode" : "J11 C11"
+}

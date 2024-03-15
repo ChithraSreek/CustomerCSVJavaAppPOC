@@ -1,0 +1,3 @@
+CustomerRef, CustomerName, AddressLine1, AddressLine2, Town, Country, PostCode
+1111, John C, johnAdd1, johnAdd2, johnTown, johnCountry, J11 C11
+2222, Axel B, axelAdd1, axelAdd2, axelTown, axelCountry, A11 B11
