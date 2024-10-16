@@ -1,30 +1,32 @@
 package com.poc.service;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
+import com.poc.dto.CustomerDto;
+import com.poc.entity.Customer;
+import com.poc.repository.CustomerRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import com.poc.dto.CustomerDto;
-import com.poc.entity.Customer;
-import com.poc.repository.CustomerRepository;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class CustomerServiceTest {
 
-    private static final String PATH_CUSTOMER_CSV = "src/test/resources/customer.csv";
+    private static final String PATH_CUSTOMER_CSV = "src/main/resources/customer.csv";
 
     @Mock
     private CustomerRepository customerRepository;
 
+    @InjectMocks
     private CustomerService customerService;
     private CustomerDto customerDto;
 
@@ -47,7 +49,7 @@ class CustomerServiceTest {
         BufferedReader reader = new BufferedReader(new FileReader(PATH_CUSTOMER_CSV));
         customerService.addCustomer(customerDto);
 
-        verify(customerRepository).save(any(Customer.class));
+        verify(customerRepository, times(2)).save(any(Customer.class));
     }
 
 }
