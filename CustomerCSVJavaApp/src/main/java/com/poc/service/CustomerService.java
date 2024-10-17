@@ -22,7 +22,7 @@ public class CustomerService {
 
     public void addCustomer(CustomerDto customerDto) {
 
-        String csvFile = "src/main/resources/customer.csv";
+        String csvFile = "/Users/chithra/IdeaProjects/CustomerCSVJavaAppPOC/CustomerCSVJavaApp/src/main/resources/customer.csv";
         String row;
         String csvSplitBy = ",";
 
