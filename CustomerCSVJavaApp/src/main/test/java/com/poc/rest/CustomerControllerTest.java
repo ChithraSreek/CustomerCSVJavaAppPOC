@@ -53,7 +53,7 @@ class CustomerControllerTest {
     @Test
     public void shouldAddCustomer() throws Exception {
         mockMvc.perform(post(ADD_CUSTOMER_URL).contentType(APPLICATION_JSON_VALUE).content(json))
-                .andExpect(status().isAccepted());
+                .andExpect(status().isCreated());
 
         verify(customerService).addCustomer(customerDto);
     }

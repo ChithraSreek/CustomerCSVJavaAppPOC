@@ -1,15 +1,14 @@
 package com.poc.rest;
 
-import static org.springframework.http.HttpStatus.ACCEPTED;
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.poc.dto.CustomerDto;
 import com.poc.entity.Customer;
 import com.poc.service.CustomerService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/customers")
@@ -22,7 +21,7 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/addCustomer", consumes = APPLICATION_JSON_VALUE)
-    @ResponseStatus(ACCEPTED)
+    @ResponseStatus(CREATED)
     public void addCustomer(@RequestBody final CustomerDto customerDto) {
         service.addCustomer(customerDto);
     }

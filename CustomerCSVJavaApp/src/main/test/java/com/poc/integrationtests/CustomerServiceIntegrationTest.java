@@ -33,7 +33,7 @@ public class CustomerServiceIntegrationTest {
                 .body(new FileReader(TEST_DATA_FILE_PATH + REQUEST_FILE))
                 .when().post(URL)
                 .then()
-                .assertThat().statusCode(202).extract().body().asString();
+                .assertThat().statusCode(201).extract().body().asString();
 
         assertEquals("", response);
     }
